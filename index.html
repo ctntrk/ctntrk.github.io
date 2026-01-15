@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatma Nur Çetintürk | AI Application Engineer</title>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #121212;
+            --text: #ededed;
+            --accent: #3291ff;
+            --gray: #888888;
+            --border: #222222;
+            --success: #32ff91;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+        .container { max-width: 760px; margin: 0 auto; }
+
+        header { margin: 3rem 0 4rem; }
+        h1 { font-weight: 600; font-size: 2.2rem; letter-spacing: -0.03em; color: #fff; }
+        .subtitle { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-top: 0.5rem; }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem;
+            background: rgba(50, 255, 145, 0.05); color: var(--success);
+            padding: 5px 12px; border-radius: 20px; margin-top: 1.2rem;
+            border: 1px solid rgba(50, 255, 145, 0.2); font-family: 'JetBrains Mono', monospace;
+        }
+        .dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* Logic Flow */
+        .logic-flow {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 1.5rem; border-radius: 12px; margin-bottom: 5rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+        }
+        .flow-step { text-align: center; }
+        .flow-step span { display: block; color: var(--gray); font-size: 0.7rem; margin-bottom: 4px; }
+        .flow-step strong { color: #fff; font-weight: 600; font-size: 0.9rem; }
+        .flow-arrow { color: var(--accent); opacity: 0.6; }
+
+        /* Sections */
+        section { margin-bottom: 5rem; }
+        section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gray); margin-bottom: 2rem; border-left: 2px solid var(--accent); padding-left: 12px; }
+
+        /* Core Philosophy Grid */
+        .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .approach-item { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; }
+        .approach-item h3 { font-size: 0.9rem; color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; }
+        .approach-item p { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
+
+        /* Expertise List */
+        .skills-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        .skills-list li { font-size: 0.85rem; color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
+        .skills-list li::before { content: "→"; color: var(--accent); font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
+
+        /* Card Style */
+        .card-link { 
+            margin-bottom: 2.5rem; 
+            display: flex; 
+            gap: 1.5rem; 
+            text-decoration: none; 
+            color: inherit; 
+            transition: var(--transition);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .icon-box { 
+            min-width: 48px; max-width: 48px; height: 48px; 
+            background: var(--surface); border: 1px solid var(--border); 
+            border-radius: 12px; display: flex; align-items: center; 
+            justify-content: center; color: var(--accent); flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .card-link:hover { transform: translateX(10px); }
+        .card-link:hover .icon-box { 
+            border-color: var(--accent); 
+            background: rgba(50, 145, 255, 0.1);
+            box-shadow: 0 0 15px rgba(50, 145, 255, 0.15);
+        }
+        .card-link:hover .title { color: var(--accent); }
+
+        .title { font-weight: 600; font-size: 1.15rem; color: #fff; transition: var(--transition); display: flex; align-items: center; }
+        .description { color: var(--gray); font-size: 0.95rem; margin-top: 0.4rem; line-height: 1.5; }
+        .meta { margin-top: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); opacity: 0.85; }
+        .tag { font-size: 0.65rem; background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; margin-left: 10px; text-transform: uppercase; }
+
+        /* Footer & Social Grid */
+        footer { margin-top: 8rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+        
+        .social-grid { 
+            display: flex; 
+            gap: 0.8rem; 
+            margin-top: 1.5rem; 
+            margin-bottom: 3rem; 
+            overflow-x: auto; 
+            white-space: nowrap; 
+            scrollbar-width: none; 
+            padding-bottom: 5px;
+        }
+        .social-grid::-webkit-scrollbar { display: none; }
+
+        /* Hem Linkler Hem Statik Mail İçin Ortak Stil */
+        .social-link, .social-link-static { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            color: var(--text); 
+            text-decoration: none; 
+            font-size: 0.7rem; 
+            padding: 8px 14px; 
+            border-radius: 10px; 
+            background: var(--surface); 
+            border: 1px solid var(--border); 
+            transition: var(--transition); 
+            white-space: nowrap; 
+            flex-shrink: 0;
+        }
+
+        
+        .social-link:hover, .social-link-static:hover { 
+            color: var(--accent); 
+            border-color: var(--accent); 
+            background: rgba(50, 145, 255, 0.05); 
+            transform: translateY(-2px); 
+        }
+
+        .social-link-static { cursor: default; }
+
+        .copyright { margin-top: 2.5rem; font-size: 0.7rem; color: #444; font-family: 'JetBrains Mono', monospace; }
+
+        @media (max-width: 600px) {
+            .card-link { gap: 1rem; }
+            .card-link:hover { transform: translateX(5px); }
+            .approach-grid, .skills-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Fatma Nur Çetintürk</h1>
+        <p class="subtitle">AI Application Engineer • Applied ML • NLP Specialist</p>
+        <div class="status-badge">
+            <div class="dot"></div>
+            Available for new opportunities
+        </div>
+    </header>
+
+    <div class="logic-flow">
+        <div class="flow-step"><span>INPUT</span><strong>Multi-Modal</strong></div>
+        <div class="flow-arrow"><i data-lucide="chevrons-right"></i></div>
+        <div class="flow-step"><span>ENGINE</span><strong style="color: var(--accent)">Applied AI</strong></div>
+        <div class="flow-arrow"><i data-lucide="chevrons-right"></i></div>
+        <div class="flow-step"><span>IMPACT</span><strong>Strategic Value</strong></div>
+    </div>
+
+    <section>
+        <h2>Core Philosophy</h2>
+        <div class="approach-grid">
+            <div class="approach-item">
+                <h3><i data-lucide="zap" style="width:16px"></i> Efficient AI</h3>
+                <p>Designing fast, scalable systems using purpose-built Small Language Models instead of over-engineered solutions.</p>
+            </div>
+            <div class="approach-item">
+                <h3><i data-lucide="layers" style="width:16px"></i> Hybrid Engineering</h3>
+                <p>Blending Generative AI with deterministic logic such as AST parsing to ensure reliability and transparency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Core Expertise</h2>
+        <ul class="skills-list">
+            <li>Natural Language Processing (LLMs, Summarization, Extraction)</li>
+            <li>Multimodal AI (Vision-Language Pipelines, CLIP)</li>
+            <li>Developer Tooling (Code Analysis, AST, Documentation)</li>
+            <li>End-to-End AI Engineering (Python, Hugging Face, Deployment)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Selected Work</h2>
+
+        <a href="https://github.com/ctntrk/ReviewInsightX-AI-Assisted-App-Review-Summarization-and-Strategic-Feedback-Extraction" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="message-square"></i></div>
+            <div>
+                <div class="title">ReviewInsightX <span class="tag">Flagship</span></div>
+                <div class="description">AI-assisted app review summarization that extracts strategic feedback from thousands of raw comments.</div>
+                <div class="meta">Python • NLP • Transformers • Strategic Feedback</div>
+            </div>
+        </a>
+
+        <a href="https://github.com/ctntrk/AutoDocX-AI-Powered-Python-Code-Understanding-and-Reporting" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="code-2"></i></div>
+            <div>
+                <div class="title">AutoDocX</div>
+                <div class="description">AI-powered Python code understanding tool. Uses AST and SLMs to generate structured documentation.</div>
+                <div class="meta">LLMs • Static Analysis • Python AST</div>
+            </div>
+        </a>
+
+        <a href="https://github.com/ctntrk/AI-Powered-Chart-Analysis-PDF-Report-Generator" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="bar-chart-3"></i></div>
+            <div>
+                <div class="title">AI Powered Chart Analysis</div>
+                <div class="description">Multimodal system interpreting complex charts with Vision-Language Models and generating automated reports.</div>
+                <div class="meta">Vision AI • Automated Reporting • SmolVLM</div>
+            </div>
+        </a>
+
+        <a href="https://github.com/ctntrk/Image-Based-Product-Description-Generator" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="shopping-bag"></i></div>
+            <div>
+                <div class="title">Image Based Product Description</div>
+                <div class="description">Generates creative e-commerce descriptions directly from uploaded images using Multimodal AI.</div>
+                <div class="meta">Computer Vision • Multimodal AI • PyTorch</div>
+            </div>
+        </a>
+
+        <a href="https://github.com/ctntrk/YouTube-Video-Summariser-Project" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="youtube"></i></div>
+            <div>
+                <div class="title">YouTube Video Summarizer</div>
+                <div class="description">Processes long transcripts to generate concise, theme-based summaries for faster information consumption.</div>
+                <div class="meta">NLP • Text Summarization • Python</div>
+            </div>
+        </a>
+    </section>
+
+    <section>
+        <h2>Latest Insights</h2>
+
+        <a href="https://medium.com/@fatmanurctntrk/artificial-intelligence-appears-stationary-are-we-really-at-a-limit-cce0d08a813b" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="brain-circuit"></i></div>
+            <div>
+                <div class="title">Artificial Intelligence Appears Stationary: Are We Really at a Limit? </div>
+                <div class="description">A deep dive into why scientific reasoning is the next great leap beyond simple chat interfaces.</div>
+                <div class="meta">Strategy & Vision • Pareto Principle in AI</div>
+            </div>
+        </a>
+
+        <a href="https://medium.com/@fatmanurctntrk/autodocx-an-ai-tool-to-understand-and-report-on-python-code-66d5ed5fb1d5" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="file-text"></i></div>
+            <div>
+                <div class="title">AutoDocX — an AI tool to understand and report on Python code! </div>
+                <div class="description">Bridging the gap between complex logic and readable documentation using ASTs and SLMs.</div>
+                <div class="meta">Technical Case Study • Developer Experience</div>
+            </div>
+        </a>
+
+        <a href="https://medium.com/@fatmanurctntrk/creating-high-quality-videos-with-ai-the-rise-of-all-in-one-text-to-video-tools-f5b389af4241" class="card-link" target="_blank">
+            <div class="icon-box"><i data-lucide="video"></i></div>
+            <div>
+                <div class="title">Creating High-Quality Videos with AI: The Rise of All-in-One Text-to-Video Tools </div>
+                <div class="description">Analyzing the evolution of text-to-video systems like Google Veo and the future of storytelling.</div>
+                <div class="meta">Generative Media • Multimodal AI</div>
+            </div>
+        </a>
+    </section>
+
+    <footer>
+        <h2>Connect & Explore</h2>
+        <div class="social-grid">
+            <a href="https://www.linkedin.com/in/fatma-nur-cetinturk/" class="social-link" target="_blank"><i data-lucide="linkedin" style="width:14px"></i> LinkedIn</a>
+            <a href="https://github.com/ctntrk" class="social-link" target="_blank"><i data-lucide="github" style="width:14px"></i> GitHub</a>
+            <a href="https://huggingface.co/ctntrk" class="social-link" target="_blank"><span style="font-size: 0.9rem; filter: grayscale(1);">🤗</span> HF</a>
+            <a href="https://www.kaggle.com/fatmanurcetnturk" class="social-link" target="_blank"><i data-lucide="award" style="width:14px"></i> Kaggle</a>
+            <a href="https://medium.com/@fatmanurctntrk" class="social-link" target="_blank"><i data-lucide="book-open" style="width:14px"></i> Medium</a>
+            <div class="social-link-static">
+                <i data-lucide="mail" style="width:14px"></i> Email: fatmanurctntrk@gmail.com
+            </div>
+        </div>
+        <p class="copyright">// Architecting Intelligence · 2026</p>
+    </footer>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>
